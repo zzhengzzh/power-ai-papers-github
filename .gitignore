@@ -1,0 +1,12 @@
+data/
+__pycache__/
+*.zip
+*.tmp
+*.pyc
+*.sqlite3
+*.sqlite3-*
+*.db
+*.log
+.env
+.env.*
+.venv/

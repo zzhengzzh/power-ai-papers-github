@@ -1,0 +1,12 @@
+{
+  "port": 8765,
+  "months": 12,
+  "request_timeout": 25,
+  "crossref_page_size": 500,
+  "max_pages_per_source": 50,
+  "ai_provider": "ollama",
+  "ollama_model": "qwen2.5:1.5b",
+  "ai_batch_size": 1,
+  "ai_max_papers_per_open": 120,
+  "public_abstracts_per_open": 15
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power / AI · 电力电子文献台</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="返回全部文献"><span class="brand-symbol">ϟ</span><span>POWER <i>/</i> AI<small>电力电子文献台</small></span></a>
+    <div class="workspace-label">PERSONAL WORKSPACE</div>
+    <nav aria-label="文献视图">
+      <button class="nav active" data-view="all"><span>▤</span>全部领域 <b id="count-all">0</b></button>
+      <button class="nav" data-view="fault"><span>⌁</span>故障检测专题 <b id="count-fault">0</b></button>
+      <button class="nav" data-view="favorite"><span>☆</span>我的收藏 <b id="count-favorite">0</b></button>
+      <button class="nav" data-view="read"><span>◷</span>已读记录 <b id="count-read">0</b></button>
+    </nav>
+    <div class="sidebar-note"><span class="local-dot"></span> 本机私有访问<p>数据保存在电脑上<br>每次启动自动检查更新</p></div>
+    <button class="sources-toggle" id="open-sources">来源与运行状态 <span>↗</span></button>
+  </aside>
+  <main>
+    <header><div class="breadcrumb">研究工作台 <span>/</span> <span id="crumb">全部领域</span></div><div class="local-pill">LOCAL EDITION</div></header>
+    <section class="heading"><div><div class="eyebrow">POWER ELECTRONICS × ARTIFICIAL INTELLIGENCE</div><h1 id="page-title">把新进展，带回你的研究。</h1><p id="page-description">追踪电力电子与人工智能的交叉研究，让每一次阅读更有方向。</p></div><div class="heading-actions"><button id="update" class="primary">↻ <span>检查更新</span></button><button id="enrich" class="secondary">生成译名与概括</button></div></section>
+    <p class="ai-choice" id="ai-choice">检查更新不使用 AI。点击中文生成才使用本机 Ollama 模型。</p>
+    <section class="overview" aria-label="文献统计">
+      <div><span>文献档案</span><strong id="stat-all">0</strong><small>从最近 12 个月开始积累</small></div>
+      <div><span>本日收录</span><strong id="stat-new">0</strong><small id="new-description">等待检查来源</small></div>
+      <div><span>故障检测专题</span><strong id="stat-fault">0</strong><small>检测 · 诊断 · 定位</small></div>
+      <div><span>我的收藏</span><strong id="stat-favorite">0</strong><small>值得再次翻阅的研究</small></div>
+    </section>
+    <section class="update-banner" aria-live="polite"><span class="status-dot" id="status-dot"></span><div><strong id="status">正在连接本地文献库…</strong><small id="ai-status">付费论文同样收录；不下载全文。</small></div><button id="view-status">查看状态 →</button></section>
+    <section class="library">
+      <div class="library-title"><h2 id="list-title">文献动态</h2><span id="result-count">0 篇</span><button class="export" id="export">导出当前结果 ↓</button></div>
+      <div class="filters">
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="检索中英文题名、概括、关键词…" aria-label="检索文献"></label>
+        <select id="journal" aria-label="期刊"><option value="">全部期刊</option></select>
+        <select id="kind" aria-label="文章类型"><option value="">全部类型</option><option value="review">综述论文</option><option value="research">研究论文</option></select>
+        <select id="sort" aria-label="排序"><option value="published">发表日期优先</option><option value="discovered">最近收录优先</option></select>
+      </div>
+      <div class="date-filters"><label>发表日期 <input type="date" id="date-from" aria-label="发表起始日期"></label><span>—</span><label><input type="date" id="date-to" aria-label="发表结束日期"></label><label class="check"><input type="checkbox" id="unread"> 仅未读</label><button id="reset">清空筛选</button></div>
+      <div class="tags" id="tags" aria-label="主题筛选"></div>
+      <div id="papers" aria-live="polite"></div>
+      <div class="pagination"><button id="previous">← 上一页</button><span id="page-info"></span><button id="next">下一页 →</button></div>
+    </section>
+    <footer><span>Power / AI · 只收录电力电子与 AI 的交叉期刊研究</span><span>概括基于可公开获取的摘要，请以原论文为准。</span></footer>
+  </main>
+  <dialog id="source-dialog"><div class="dialog-title"><div><div class="eyebrow">COLLECTION HEALTH</div><h2>来源与运行状态</h2></div><button id="close-dialog" aria-label="关闭">×</button></div><p class="notice">付费论文题录也会收录。免费元数据可能延迟，来源受限时不能据此判定无新增。未登记在线日期的论文会明确标注日期依据。</p><div id="sources"></div><div class="dialog-note" id="dialog-ai"></div></dialog>
+</body>
+</html>
